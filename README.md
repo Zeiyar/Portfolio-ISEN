@@ -1,33 +1,34 @@
-# Portfolio-ISEN
-Un nouveau portfolio de l'école d'ISEN by simplon en tant que développeur IA 
+👋 À propos de moi
 
-Présentation / Parcours
+Développeur web autodidacte de 22 ans, formé depuis 6 mois aux technologies web (HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, TypeScript) via freeCodeCamp et des projets personnels.
 
-22 ans, développeur web autodidacte depuis 6 mois. Après un parcours scolaire interrompu en lycée S et une expérience dans l’armée (infanterie), j’ai occupé différents postes techniques et opérationnels (logistique, manutention, électricité).
-Aujourd’hui, je me forme intensivement au développement web et à l’IA, avec une forte capacité d’apprentissage autonome et une volonté d’évoluer vers un profil développeur IA - fullstack
+Je suis actuellement en formation intensive de 3 mois en intelligence artificielle à ISEN by Simplon, où je me forme à Python, aux bases de l’IA, aux bases de données et aux fondamentaux nécessaires pour devenir développeur IA.
 
-Compétences techniques
+Autonome, curieux et persévérant, je m’oriente vers un profil full-stack / IA et je suis à la recherche d’une alternance pour mettre en pratique mes compétences et continuer à monter en niveau au sein d’une équipe.
+
+🛠️ Compétences techniques
 
 Frontend : HTML, CSS, JavaScript, React
 
 Backend : Node.js, Express
 
-Base de données : MongoDB
+IA / Data (en cours) : Python, bases de l’IA, bases de données
 
 Autres : TypeScript, API REST, authentification, recherche dynamique
 
-Méthode : autodidacte (freeCodeCamp), projets concrets, résolution de bugs avec analyse critique (y compris limites des outils IA)
+🚀 Projets
+🎬 Application type Netflix (full-stack)
 
-Projet / Expérience
+Authentification utilisateur
 
-Réalisation de mini-projets full-stack, dont une application type Netflix intégrant :
+Recherche de films via l’API TMDB
 
-authentification utilisateur
+Interface React avec barre de recherche
 
-recherche de films via l’API TMDB
+Backend Express + MongoDB
 
-interface React avec barre de recherche dynamique
+Projet réalisé en autonomie, de la conception au développement.
 
-logique backend (Express / MongoDB)
+🎯 Objectif
 
-Habitué à travailler seul sur l’ensemble d’un projet (front + back), je suis à l’aise avec la compréhension, la correction et l’amélioration de code existant.
+Intégrer une alternance en développement IA / full-stack, dans un environnement technique stimulant, avec une forte volonté d’apprendre et de contribuer rapidement à des projets concrets.
