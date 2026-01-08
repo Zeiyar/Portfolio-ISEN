@@ -19,8 +19,6 @@ body{
 	line-height:1.6;
 }
 
-header.titre, .titre{ /* defensive: title class used in HTML */ }
-
 header{padding:28px 16px; text-align:center}
 .titre{font-size:2rem;margin:0;letter-spacing:0.4px}
 
