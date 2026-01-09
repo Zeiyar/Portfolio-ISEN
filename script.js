@@ -1,38 +1,45 @@
-// Simple, easy-to-read JavaScript for toggles and project filters
+// Load after DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
-    // Toggle sections: "Plus sur moi" and "Compétences"
+    // Toggle Plus sur moi
     const moreBtn = document.getElementById('more-btn');
     const moreContent = document.getElementById('more-content');
+    if (moreBtn && moreContent) {
+        moreBtn.addEventListener('click', function () {
+            const hidden = moreContent.classList.toggle('hidden');
+            moreBtn.textContent = hidden ? 'Plus sur moi...' : 'Moins sur moi...';
+        });
+    }
+
+    // Toggle Compétences
     const skillsBtn = document.getElementById('skills-btn');
     const skillsContent = document.getElementById('skills-content');
-
-    function simpleToggle(button, section, showText, hideText) {
-        if (!button || !section) return;
-        button.addEventListener('click', function () {
-            const hidden = section.classList.toggle('hidden');
-            // update button label so it's clear what it does
-            button.textContent = hidden ? showText : hideText;
+    if (skillsBtn && skillsContent) {
+        skillsBtn.addEventListener('click', function () {
+            const hidden = skillsContent.classList.toggle('hidden2');
+            skillsBtn.textContent = hidden ? '🛠️ Compétences techniques...' : '🛠️ Compétences techniques (masquer)';
         });
     }
 
-    simpleToggle(moreBtn, moreContent, 'Plus sur moi...', 'Moins sur moi...');
-    simpleToggle(skillsBtn, skillsContent, '🛠️ Compétences techniques...', '🛠️ Compétences techniques (masquer)');
-
-    // Project filtering by category
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // Buttons 
+    const filterBtns = document.querySelectorAll('.filter-btn');
     const projects = document.querySelectorAll('#projets article');
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        projects.forEach(project => {
-            if (filter === 'all' || project.id.toLowerCase() === filter) {
-                project.style.display = 'block';
-            } else {
-                project.style.display = 'none';
-            }
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const key = this.id; // example frontend ou ia
+
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            projects.forEach(p => {
+                const cat = p.id.toLowerCase();
+                // si key est all on affiche tout sinon on compare
+                if (key === 'all' || cat.includes(key)) {
+                    p.style.display = '';
+                } else {
+                    p.style.display = 'none';
+                }
+            });
         });
-    }
-);
-});
+    });
 });
