@@ -293,6 +293,7 @@ if (heroBtn) {
 
   heroBtn.addEventListener("click", (e) => {
     const rect = heroBtn.getBoundingClientRect();
+    const parentRect = (heroBtn.closest('.hero') || heroBtn.parentElement).getBoundingClientRect();
 
     for (let i = 0; i < 25; i++) {
       const particle = document.createElement("span");
@@ -304,12 +305,15 @@ if (heroBtn) {
       particle.style.setProperty("--x", x);
       particle.style.setProperty("--y", y);
 
-      // position particle at center of button
-      particle.style.left = rect.width / 2 + "px";
-      particle.style.top = rect.height / 2 + "px";
+      // position particle at click coordinates relative to the .hero container
+      const clickX = (e.clientX - parentRect.left) + "px";
+      const clickY = (e.clientY - parentRect.top) + "px";
+      particle.style.left = clickX;
+      particle.style.top = clickY;
 
-      // append to the button so positioning is relative to it/its container
-      heroBtn.appendChild(particle);
+      // append to the hero container so absolute coordinates match parentRect
+      const container = heroBtn.closest('.hero') || heroBtn.parentElement;
+      container.appendChild(particle);
 
       setTimeout(() => particle.remove(), 800);
     }
