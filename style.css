@@ -162,7 +162,7 @@ button {
 
 .socials a {
   font-size: 28px;
-  color: #222;
+  color: #cbd5e1; /* légèrement plus visible */
   transition: transform 0.2s, color 0.2s;
 }
 
