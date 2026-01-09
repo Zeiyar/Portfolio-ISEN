@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('active');
 
             projects.forEach(p => {
-                const cat = p.id.toLowerCase();
+                const cat = (p.getAttribute('data-category') || p.id || '').toLowerCase();
                 // si key est all on affiche tout sinon on compare
                 if (key === 'all' || cat.includes(key)) {
                     p.style.display = '';
