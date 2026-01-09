@@ -184,15 +184,7 @@ button {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-  margin:12px auto;
-}
-
-#projets {
-  text-align: center;
-}
-
-#projets h3 {
-  text-align: center;
+  margin-top:12px;
 }
 
 #projects-container article,
@@ -218,7 +210,7 @@ button {
 .filter-btn.active{box-shadow:0 6px 16px rgba(239,68,68,0.18);}
 
 /* Contact form styles */
-.contact-form{display:flex;flex-direction:column;gap:8px;max-width:720px;margin:12px auto;align-items:center}
+.contact-form{display:flex;flex-direction:column;gap:8px;max-width:720px;margin:12px 0}
 .contact-form label{font-weight:600;color:#fff}
 .contact-form input,.contact-form textarea{
   padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.01);color:#e6eef8;
@@ -239,7 +231,7 @@ button {
 
 .hero {
   height: 100vh;
-  background: url("./images/pngtree-luminous-network-futuristic-data-stream-on-dark-background-image_19838012.jpg") center/cover no-repeat;
+  background: url("./images/artificial-intelligence-background--abstract-ai-background-with.jpg") center/cover no-repeat;
   position: relative;
 }
 
