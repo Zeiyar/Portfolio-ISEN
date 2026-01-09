@@ -12,9 +12,9 @@
 
 <body>
 
-<head>
+<header>
     <h1 class="titre">Corentin Mariey</h1>
-</head>
+</header>
 
 <main class="main">
 
@@ -110,10 +110,26 @@
         </p>
     </section>
 
+    <section id="contact">
+        <h3>Me contacter </h3>
+        <form id="contact-form" class="contact-form">
+            <label for="contact-name">Nom *</label>
+            <input type="text" id="contact-name" placeholder="Votre nom" required>
+
+            <label for="contact-email">Email *</label>
+            <input type="email" id="contact-email" placeholder="votre@email.com" required>
+
+            <label for="contact-message">Message *</label>
+            <textarea id="contact-message" rows="5" placeholder="Votre message..." required></textarea>
+
+            <button type="button" id="contact-submit" class="btn-submit">Envoyer</button>
+            <p id="contact-feedback" style="display:none;"></p>
+        </form>
+    </section>
+
 </main>
 
-    <footer>    
-        <h3>Contact</h3>
+    <footer>
         <nav class="socials">
             <a href="https://github.com/Zeiyar" target="_blank" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i>
@@ -135,6 +151,6 @@
             </a>
         </nav>
     </footer>   
-    <script src="script.js"></script>
+    <script src="app.js"></script>
     </body>
 </html>

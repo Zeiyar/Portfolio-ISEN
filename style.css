@@ -31,7 +31,7 @@ a:focus, button:focus{outline:3px solid rgba(239,68,68,0.18);outline-offset:2px}
 /* Portfolio IA - sections and utilities */
 
 /* Hero / header */
-head{
+header{
   padding:32px 12px;
   margin: auto;
   text-align:center;
