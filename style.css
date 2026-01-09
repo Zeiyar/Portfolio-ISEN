@@ -292,3 +292,26 @@ button {
     transform: translate(var(--x), var(--y)) scale(0);
   }
 }
+
+/* Improved hero particle burst styles */
+.hero { position: relative; overflow: visible; }
+.hero .hero-cta { position: relative; z-index: 1; }
+.hero .particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent, #ef4444);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: burst 700ms forwards ease-out;
+}
+
+@keyframes burst {
+  to {
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(0.2);
+    opacity: 0;
+  }
+}

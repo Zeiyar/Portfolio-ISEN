@@ -284,31 +284,47 @@ document.addEventListener('DOMContentLoaded', function () {
 const heroBtn = document.getElementById("hero-cta");
 const target = document.getElementById("about");
 
-btn.addEventListener("click", (e) => {
-  const rect = btn.getBoundingClientRect();
-
-  for (let i = 0; i < 25; i++) {
-    const particle = document.createElement("span");
-    particle.classList.add("particle");
-
-    const x = (Math.random() - 0.5) * 200 + "px";
-    const y = (Math.random() - 0.5) * 200 + "px";
-
-    particle.style.setProperty("--x", x);
-    particle.style.setProperty("--y", y);
-
-    particle.style.left = rect.width / 2 + "px";
-    particle.style.top = rect.height / 2 + "px";
-
-    btn.appendChild(particle);
-
-    setTimeout(() => particle.remove(), 700);
+if (heroBtn) {
+  // Ensure the button's container is positioned so absolute particles are placed correctly
+  const parent = heroBtn.closest('.hero') || heroBtn.parentElement;
+  if (parent && getComputedStyle(parent).position === 'static') {
+    parent.style.position = 'relative';
   }
 
-  btn.style.opacity = "0";
-  btn.style.pointerEvents = "none";
+  heroBtn.addEventListener("click", (e) => {
+    const rect = heroBtn.getBoundingClientRect();
 
-  setTimeout(() => {
-    target.scrollIntoView({ behavior: "smooth" });
-  }, 300);
-});
+    for (let i = 0; i < 25; i++) {
+      const particle = document.createElement("span");
+      particle.classList.add("particle");
+
+      const x = (Math.random() - 0.5) * 200 + "px";
+      const y = (Math.random() - 0.5) * 200 + "px";
+
+      particle.style.setProperty("--x", x);
+      particle.style.setProperty("--y", y);
+
+      // position particle at center of button
+      particle.style.left = rect.width / 2 + "px";
+      particle.style.top = rect.height / 2 + "px";
+
+      // append to the button so positioning is relative to it/its container
+      heroBtn.appendChild(particle);
+
+      setTimeout(() => particle.remove(), 800);
+    }
+
+    // small visual feedback: hide CTA briefly
+    heroBtn.style.opacity = "0";
+    heroBtn.style.pointerEvents = "none";
+
+    setTimeout(() => {
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+      // restore CTA after animation completes
+      setTimeout(() => {
+        heroBtn.style.opacity = "";
+        heroBtn.style.pointerEvents = "";
+      }, 600);
+    }, 250);
+  });
+}
