@@ -170,3 +170,54 @@ button {
   transform: scale(1.15);
   color: #0077b5; /* LinkedIn blue par défaut */
 }
+
+/* Projects: dynamic container (app.js) and fallback for static articles */
+#projects-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+
+#projects-container article,
+#projets > article{
+  background:rgba(255,255,255,0.02);
+  padding:14px;
+  border-radius:10px;
+  transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+
+#projects-container article:hover,
+#projets > article:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+#projects-container h4,
+#projets h4{margin:0 0 8px 0;color:#fff;font-size:1.05rem}
+#projects-container ul,
+#projets ul{margin:0;padding-left:18px;color:var(--muted)}
+
+/* Filter button active (ensure strong contrast) */
+.filter-btn.active{box-shadow:0 6px 16px rgba(239,68,68,0.18);}
+
+/* Contact form styles */
+.contact-form{display:flex;flex-direction:column;gap:8px;max-width:720px;margin:12px 0}
+.contact-form label{font-weight:600;color:#fff}
+.contact-form input,.contact-form textarea{
+  padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.01);color:#e6eef8;
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(230,238,248,0.5)}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:rgba(239,68,68,0.6);box-shadow:0 6px 18px rgba(239,68,68,0.08)}
+
+.btn-submit{background:var(--accent);color:#0b0b0b;padding:10px 14px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+.btn-submit:hover{background:#dc2626;transform:translateY(-2px)}
+
+#contact-feedback{margin-top:6px;font-weight:600}
+
+/* Responsive tweaks */
+@media (max-width:800px){
+  #projects-container, #projets{grid-template-columns:1fr}
+  #projects-container{grid-template-columns:1fr}
+}
+

@@ -60,29 +60,47 @@ const appState = {
 // ===== GÉNÉRER LES PROJETS DYNAMIQUEMENT =====
 function renderProjects(filter = 'all') {
   const projectsContainer = document.getElementById('projects-container');
-  if (!projectsContainer) return;
 
-  projectsContainer.innerHTML = ''; // Vider le conteneur
+  // If a dynamic container exists, render from data into it.
+  if (projectsContainer) {
+    projectsContainer.innerHTML = ''; // Vider le conteneur
 
-  // Filtrer les projets
-  const filtered = portfolioData.projects.filter(p => {
-    if (filter === 'all') return true;
-    return p.category.includes(filter);
-  });
+    // Filtrer les projets
+    const filtered = portfolioData.projects.filter(p => {
+      if (filter === 'all') return true;
+      return p.category.includes(filter);
+    });
 
-  // Créer les éléments HTML pour chaque projet
-  filtered.forEach(project => {
-    const article = document.createElement('article');
-    article.id = project.id;
-    article.setAttribute('data-category', project.category.join(' '));
-    article.innerHTML = `
-      <h4>${project.title}</h4>
-      <ul>
-        ${project.description.map(desc => `<li>${desc}</li>`).join('')}
-      </ul>
-    `;
-    projectsContainer.appendChild(article);
-  });
+    // Créer les éléments HTML pour chaque projet
+    filtered.forEach(project => {
+      const article = document.createElement('article');
+      article.id = project.id;
+      article.setAttribute('data-category', project.category.join(' '));
+      article.innerHTML = `
+        <h4>${project.title}</h4>
+        <ul>
+          ${project.description.map(desc => `<li>${desc}</li>`).join('')}
+        </ul>
+      `;
+      projectsContainer.appendChild(article);
+    });
+
+    return; // done
+  }
+
+  // Fallback: if no dynamic container, try to filter existing static articles inside #projets
+  const staticArticles = document.querySelectorAll('#projets article');
+  if (staticArticles.length) {
+    staticArticles.forEach(a => {
+      const catAttr = (a.getAttribute('data-category') || a.id || '').toLowerCase();
+      const cats = catAttr.split(' ').map(s => s.trim()).filter(Boolean);
+      if (filter === 'all' || cats.includes(filter)) {
+        a.style.display = '';
+      } else {
+        a.style.display = 'none';
+      }
+    });
+  }
 }
 
 // ===== GÉRER LES FILTRES =====
