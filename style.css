@@ -14,9 +14,9 @@ body{
     background:linear-gradient(180deg,var(--bg),#050506);
     -webkit-font-smoothing:antialiased}
 
-.main{max-width:var(--maxw);margin:14px auto;padding:16px;background:rgba(255,255,255,0.02);border-radius:10px}
+.main{max-width:var(--maxw);margin:14px auto;padding:16px;background:rgba(255,255,255,0.02);border-radius:10px;text-align:center}
 
-article{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;margin:10px 0}
+article{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;margin:10px 0;text-align:center}
 
 footer{padding:18px 12px;text-align:center;color:var(--muted)}
 footer a{color:var(--accent);text-decoration:none}
@@ -56,21 +56,29 @@ header{
 .main{background:transparent;padding:6px}
 
 /* About / summary */
-section#about{background:rgba(255,255,255,0.02);padding:16px;border-radius:10px}
+section#about{background:rgba(255,255,255,0.02);padding:16px;border-radius:10px;text-align:center}
 section#about p{color:var(--muted);margin:10px 0}
 
 /* Skill badges */
-.skills{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin:10px auto;justify-content:center}
 .skill{background:rgba(239,68,68,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.9rem}
 
 /* Projects grid */
 .projects{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.project{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+.project{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;text-align:center}
 .project h4{margin:0 0 6px 0;color:#fff}
 .project p{margin:0;color:var(--muted);font-size:0.95rem}
 
 /* Contact / footer */
-footer{margin-top:18px;padding:18px 12px;text-align:center;color:var(--muted)}
+footer{
+  max-width:var(--maxw);
+  margin:18px auto 0 auto;
+  padding:18px 12px;
+  text-align:center;
+  color:var(--muted);
+  background:rgba(255,255,255,0.02);
+  border-radius:10px;
+}
 footer nav{display:flex;gap:12px;justify-content:center;align-items:center}
 footer a{color:var(--accent);text-decoration:none;font-weight:600}
 
@@ -100,7 +108,7 @@ button, .btn-primary{
 }
 
 /* Filter buttons */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;justify-content:center}
 .filter-btn{
   background:rgba(239,68,68,0.08);
   color:var(--accent);
@@ -176,7 +184,15 @@ button {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-  margin-top:12px;
+  margin:12px auto;
+}
+
+#projets {
+  text-align: center;
+}
+
+#projets h3 {
+  text-align: center;
 }
 
 #projects-container article,
@@ -202,7 +218,7 @@ button {
 .filter-btn.active{box-shadow:0 6px 16px rgba(239,68,68,0.18);}
 
 /* Contact form styles */
-.contact-form{display:flex;flex-direction:column;gap:8px;max-width:720px;margin:12px 0}
+.contact-form{display:flex;flex-direction:column;gap:8px;max-width:720px;margin:12px auto;align-items:center}
 .contact-form label{font-weight:600;color:#fff}
 .contact-form input,.contact-form textarea{
   padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.01);color:#e6eef8;
