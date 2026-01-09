@@ -280,3 +280,35 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialiser le formulaire de contact
   setupContactForm();
 });
+
+const heroBtn = document.getElementById("hero-cta");
+const target = document.getElementById("about");
+
+btn.addEventListener("click", (e) => {
+  const rect = btn.getBoundingClientRect();
+
+  for (let i = 0; i < 25; i++) {
+    const particle = document.createElement("span");
+    particle.classList.add("particle");
+
+    const x = (Math.random() - 0.5) * 200 + "px";
+    const y = (Math.random() - 0.5) * 200 + "px";
+
+    particle.style.setProperty("--x", x);
+    particle.style.setProperty("--y", y);
+
+    particle.style.left = rect.width / 2 + "px";
+    particle.style.top = rect.height / 2 + "px";
+
+    btn.appendChild(particle);
+
+    setTimeout(() => particle.remove(), 700);
+  }
+
+  btn.style.opacity = "0";
+  btn.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    target.scrollIntoView({ behavior: "smooth" });
+  }, 300);
+});
