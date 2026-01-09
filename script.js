@@ -28,17 +28,17 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.addEventListener('click', function () {
             const key = this.id; // example frontend ou ia
 
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
+    filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
 
-            projects.forEach(p => {
-                const cat = (p.getAttribute('data-category') || p.id || '').toLowerCase();
-                // si key est all on affiche tout sinon on compare
-                if (key === 'all' || cat.includes(key)) {
-                    p.style.display = '';
-                } else {
-                    p.style.display = 'none';
-                }
+    projects.forEach(p => {
+        const cat = (p.getAttribute('data-category') || p.id || '').toLowerCase();
+        // si key est all on affiche tout sinon on compare
+        if (key === 'all' || cat.includes(key)) {
+            p.style.display = '';
+        } else {
+            p.style.display = 'none';
+        }
             });
         });
     });
