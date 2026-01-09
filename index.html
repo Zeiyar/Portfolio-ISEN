@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 </head>
 
 <body>
@@ -43,7 +47,7 @@
 
     <button id="skills-btn">🛠️ Compétences techniques...</button>
 
-    <section id="skills-content" class="hidden">
+    <section id="skills-content" class="hidden2">
         <ul>
             <li><strong>Frontend :</strong> HTML, CSS, JavaScript, React</li>
             <li><strong>Backend :</strong> Node.js, Express</li>
@@ -54,13 +58,45 @@
 
     <section id="projets">
         <h3>Mes projets</h3>
-        <article>
+        <div class="filters">
+            <button class="filter-btn" id="all">Tous</button>
+            <button class="filter-btn" id="frontend">Frontend</button>
+            <button class="filter-btn" id="backend">Backend</button>
+            <button class="filter-btn" id="fullstack">Full-Stack</button>
+            <button class="filter-btn" id="ia">IA</button>
+        </div>
+        <article id="full-stack">
             <h4>🎬 Application type Netflix (Full-Stack)</h4>
             <ul>
                 <li>Authentification utilisateur</li>
                 <li>Recherche de films via l’API TMDB</li>
                 <li>Interface React avec barre de recherche</li>
                 <li>Backend Express avec MongoDB</li>
+            </ul>
+        </article>
+        <article id="Frontend">
+            <h4>📝 To-Do List (Frontend)</h4>
+            <ul>
+                <li>Ajouter, supprimer et marquer des tâches comme terminées</li>
+                <li>Interface utilisateur simple et intuitive</li>
+                <li>Stockage des tâches dans le local storage</li>
+            </ul>
+        </article>
+        <article id="Frontend">
+            <h4>Site-vitrine Umuzoi-Sushi-Bar</h4>
+            <ul>
+                <li>Design responsive avec TypeScript et Tailwind CSS</li>
+                <li>Navigation fluide </li>
+                <li>Intégration de photos et de menus</li>
+            </ul>
+        </article>
+        <article id="IA Backend">
+            <h4>🤖 Compte Rendu Automatisé IA (en cours)</h4>
+            <ul>
+                <li>Compte rendu automatique à partir de données fournies</li>
+                <li>Interface utilisateur simple pour interagir avec le chatbot</li>
+                <li>Entraînement du modèle avec des données spécifiques</li>
+                <li>Images Automatisé pris sur Unleash en fonction du sujet</li>
             </ul>
         </article>
     </section>
@@ -76,13 +112,29 @@
 
 </main>
 
-<footer>
-    <nav>
+    <footer>    
         <h3>Contact</h3>
-        <a href="https://github.com/Zeiyar/" target="_blank">GitHub</a>
-    </nav>
-</footer>
+        <nav class="socials">
+            <a href="https://github.com/Zeiyar" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
 
+            <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="https://www.freecodecamp.org/" target="_blank" aria-label="freeCodeCamp">
+                <i class="fa-brands fa-free-code-camp"></i>
+            </a>
+
+            <a href="tel:0783051635" aria-label="Téléphone">
+                <i class="fa-solid fa-phone"></i>
+            </a>
+            <a href="mailto:marieycorentin97@gmail.com" aria-label="mailto">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </nav>
+    </footer>   
     <script src="script.js"></script>
     </body>
 </html>

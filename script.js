@@ -9,5 +9,23 @@ moreBtn.addEventListener('click', () => {
 });
 
 skillsBtn.addEventListener('click', () => {
-    skillsContent.classList.toggle('hidden');
+    skillsContent.classList.toggle('hidden2');
+});
+
+// Project filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projects = document.querySelectorAll('#projets article');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        projects.forEach(project => {
+            if (filter === 'all' || project.id.toLowerCase() === filter) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+    }
+);
 });

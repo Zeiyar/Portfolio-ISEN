@@ -95,8 +95,32 @@ footer a{color:var(--accent);text-decoration:none;font-weight:600}
 .hidden {
     display: none;
 }
+.hidden2 {
+    display: none;
+}
+.hidden3 {
+    display: none;
+}
 
 button {
     margin: 10px 0;
     cursor: pointer;
+}
+
+/* contact socials */
+.socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.socials a {
+  font-size: 28px;
+  color: #222;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.socials a:hover {
+  transform: scale(1.15);
+  color: #0077b5; /* LinkedIn blue par défaut */
 }
