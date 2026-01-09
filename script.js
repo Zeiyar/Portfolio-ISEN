@@ -1,20 +1,26 @@
-const moreBtn = document.getElementById('more-btn');
-const moreContent = document.getElementById('more-content');
+// Simple, easy-to-read JavaScript for toggles and project filters
+document.addEventListener('DOMContentLoaded', function () {
+    // Toggle sections: "Plus sur moi" and "Compétences"
+    const moreBtn = document.getElementById('more-btn');
+    const moreContent = document.getElementById('more-content');
+    const skillsBtn = document.getElementById('skills-btn');
+    const skillsContent = document.getElementById('skills-content');
 
-const skillsBtn = document.getElementById('skills-btn');
-const skillsContent = document.getElementById('skills-content');
+    function simpleToggle(button, section, showText, hideText) {
+        if (!button || !section) return;
+        button.addEventListener('click', function () {
+            const hidden = section.classList.toggle('hidden');
+            // update button label so it's clear what it does
+            button.textContent = hidden ? showText : hideText;
+        });
+    }
 
-moreBtn.addEventListener('click', () => {
-    moreContent.classList.toggle('hidden');
-});
+    simpleToggle(moreBtn, moreContent, 'Plus sur moi...', 'Moins sur moi...');
+    simpleToggle(skillsBtn, skillsContent, '🛠️ Compétences techniques...', '🛠️ Compétences techniques (masquer)');
 
-skillsBtn.addEventListener('click', () => {
-    skillsContent.classList.toggle('hidden2');
-});
-
-// Project filtering
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projects = document.querySelectorAll('#projets article');
+    // Project filtering by category
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('#projets article');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -28,4 +34,5 @@ filterButtons.forEach(button => {
         });
     }
 );
+});
 });

@@ -73,8 +73,53 @@ footer{margin-top:18px;padding:18px 12px;text-align:center;color:var(--muted)}
 footer nav{display:flex;gap:12px;justify-content:center;align-items:center}
 footer a{color:var(--accent);text-decoration:none;font-weight:600}
 
-/* Buttons */
-.btn-primary{display:inline-block;padding:8px 14px;border-radius:10px;background:var(--accent);color:#0b0b0b;text-decoration:none;font-weight:700}
+/* Buttons - primary, secondary, and filter buttons */
+button, .btn-primary{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:8px;
+  border:none;
+  font-size:0.95rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.btn-primary, button#more-btn, button#skills-btn{
+  background:var(--accent);
+  color:#0b0b0b;
+  text-decoration:none;
+  margin:10px 6px 10px 0;
+}
+
+.btn-primary:hover, button#more-btn:hover, button#skills-btn:hover{
+  background:#dc2626;
+  transform:translateY(-2px);
+  box-shadow:0 8px 16px rgba(239,68,68,0.3);
+}
+
+/* Filter buttons */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.filter-btn{
+  background:rgba(239,68,68,0.08);
+  color:var(--accent);
+  border:1px solid rgba(239,68,68,0.2);
+  padding:8px 12px;
+  font-size:0.9rem;
+  border-radius:6px;
+  transition:all 0.3s ease;
+}
+
+.filter-btn:hover{
+  background:rgba(239,68,68,0.15);
+  border-color:var(--accent);
+}
+
+.filter-btn.active{
+  background:var(--accent);
+  color:#0b0b0b;
+  border-color:var(--accent);
+}
 
 /* Responsive adjustments: mobile-first */
 @media (max-width:800px){
