@@ -223,7 +223,7 @@ button {
 
 .hero {
   height: 100vh;
-  background: url("images/pngtree-luminous-network-futuristic-data-stream-on-dark-background-image_19838012.jpg") center/cover no-repeat;
+  background: url("./images/pngtree-luminous-network-futuristic-data-stream-on-dark-background-image_19838012.jpg") center/cover no-repeat;
   position: relative;
 }
 
