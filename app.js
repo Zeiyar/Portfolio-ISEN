@@ -162,15 +162,48 @@ function setupContactForm() {
   const submitBtn = document.getElementById('contact-submit');
   const feedback = document.getElementById('contact-feedback');
 
-  // Écouter les changements d'entrée
-  nameInput.addEventListener('input', (e) => {
+  // --- Temporary storage helpers (sessionStorage) ---
+  const STORAGE_KEY = 'contactFormTemp';
+
+  function saveFormToStorage() {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(appState.formData));
+    } catch (err) {
+      // ignore storage errors
+    }
+  }
+
+  function loadFormFromStorage() {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (err) {
+      return null;
+    }
+  }
+
+  // Load any saved values into the form and appState
+  const saved = loadFormFromStorage();
+  if (saved) {
+    appState.formData = Object.assign(appState.formData, saved);
+    if (nameInput) nameInput.value = appState.formData.name || '';
+    if (emailInput) emailInput.value = appState.formData.email || '';
+    if (messageInput) messageInput.value = appState.formData.message || '';
+  }
+
+  // Écouter les changements d'entrée et sauvegarder temporairement
+  if (nameInput) nameInput.addEventListener('input', (e) => {
     appState.formData.name = e.target.value;
+    saveFormToStorage();
   });
-  emailInput.addEventListener('input', (e) => {
+  if (emailInput) emailInput.addEventListener('input', (e) => {
     appState.formData.email = e.target.value;
+    saveFormToStorage();
   });
-  messageInput.addEventListener('input', (e) => {
+  if (messageInput) messageInput.addEventListener('input', (e) => {
     appState.formData.message = e.target.value;
+    saveFormToStorage();
   });
 
   // Soumettre le formulaire
@@ -184,11 +217,12 @@ function setupContactForm() {
       feedback.style.color = '#10b981';
       feedback.style.display = 'block';
 
-      // Réinitialiser le formulaire
-      nameInput.value = '';
-      emailInput.value = '';
-      messageInput.value = '';
+      // Réinitialiser le formulaire et le stockage temporaire
+      if (nameInput) nameInput.value = '';
+      if (emailInput) emailInput.value = '';
+      if (messageInput) messageInput.value = '';
       appState.formData = { name: '', email: '', message: '' };
+      try { sessionStorage.removeItem(STORAGE_KEY); } catch (err) {}
 
       // Masquer le message après 5 secondes
       setTimeout(() => {
